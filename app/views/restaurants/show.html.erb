@@ -26,9 +26,16 @@
 </p>
 
 <p>
-  <strong>Stars:</strong>
-  <%= @restaurant.stars %>
+  <strong>Comments:</strong>
+  <%= @restaurant.rating %>
 </p>
-<%= link_to 'Add Review', restaurant_reviews_path(@review) %>
+<ul>
+<% @reviews.each do |review| %>
+
+ <li><%=  review.content %></li>
+
+  <% end %>
+  </ul>
+<%= link_to 'Add Review', new_restaurant_review_path(@restaurant.id) %>
 <%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
 <%= link_to 'Back', restaurants_path %>
